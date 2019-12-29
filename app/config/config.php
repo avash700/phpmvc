@@ -1,6 +1,18 @@
 <?php
-    //app root
+   //db credentials
+   define('DB_HOST','localhost');
+   define('DB_USER','root');
+   define('DB_PASS','');
+   define('DB_NAME','rideshare');
+
+   
+
+   
+   //app root , app folder
     define('APPROOT' , dirname(dirname(__FILE__))) ;
-    //url root
-    define('URLROOT' , 'http://localhost/phpmvc');
+    //url root , public folder
+    define('URLROOT' , 'http://localhost/phpmvc/');
+    //sitename
+    define('SITENAME' , 'PHPMVC');
+
     
