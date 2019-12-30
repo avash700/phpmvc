@@ -12,6 +12,7 @@
     <?php if(isset($_SESSION['user_id'])): ?>
         <ul>
         <li><a href="<?php echo URLROOT; ?>users/logout"> logout </a></li>
+        <li><a href="<?php echo URLROOT; ?>rides/">My rides</a></li>
         </ul>
     <?php else: ?>
     <ul>
