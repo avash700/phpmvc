@@ -20,6 +20,7 @@
 
     </div>
     <a href="<?php echo URLROOT; ?>rides/delete/<?php echo $ride->id; ?>">Delete ride</a>
+    <a href="<?php echo URLROOT; ?>rides/update/<?php echo $ride->id; ?>">Edit ride</a>
     <hr>
 <?php endforeach; ?>
 
