@@ -13,6 +13,10 @@
         
         public function login(){
 
+            if(isLoggedIn()){
+                redirect('rides');
+            }
+
             //check is data is being posted
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 //process login request

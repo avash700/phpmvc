@@ -113,5 +113,48 @@
             }
             
         }
+
+        public function update($ride_id){
+
+            $user_ride_id = $this->rideModel->checkUserSession($ride_id);
+            if($user_ride_id->user_id !== $_SESSION['user_id']){
+
+                redirect('rides');
+            }
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                
+                 //sanitize post data
+                 $_POST = filter_input_array(INPUT_POST , FILTER_SANITIZE_STRING);
+                
+                 if($this->rideModel->updateRide($_POST)){
+                    
+                    redirect('rides');
+                 }else{
+                     die('Something went wrong!!'); 
+                 }
+                
+
+            }else{
+                $result = $this->rideModel->getRideById($ride_id);
+                $data = [
+                    'rideid' => $result->id,
+                    'source' => $result->source,
+                    'destination' => $result->destination,
+                    'departure' => $result->departure,
+                    'vehicle' => $result->vehicle,
+                    'seats' => $result->seats,
+                    'source_err' => '',
+                    'destination_err' => '',
+                    'departure_err' => '',
+                    'vehicle_err' => '',
+                    'seats_err' => ''
+                ];
+    
+                $this->view('rides/update' , $data);
+            }
+        }
+
+        
    
     }
